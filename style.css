@@ -2,6 +2,7 @@
 
 .todos-bg-container{
     background-color: #d8e7fd;
+    height: 100vh;
 }
 
 .todos-heading{
@@ -51,10 +52,6 @@
 
 .todo-item-heading-subpart{
     font-weight: 500;
-}
-
-.todo-item-div{
-    margin-bottom: 30px;
 }
 
 .todo-item-container{
