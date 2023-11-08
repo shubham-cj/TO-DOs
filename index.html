@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/6c6dc9163f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>TO-DOs</title>
 </head>
@@ -17,13 +19,14 @@
                     <h1 class="creat-task-heading">
                         Create <span class="create-task-heading-subpart">Task</span>
                     </h1>
-                    <input type="text" class="todo-user-input" id="todoUserInput">
-                    <button class="add-todo-button btn btn-primary">Add</button>
+                    <input type="text" class="todo-user-input" id="todoUserInput" placeholder="What needs to be done?">
+                    <button class="add-todo-button btn btn-primary" onclick="onAddTodo()" id="onAddTodoButton">Add</button>
                     <h1 class="todo-item-heading">
                         My <span class="todo-item-heading-subpart">Tasks</span>
                     </h1>
                     <ul class="m-0 p-0" id="todoItemsContainer">
-                        <!-- <li class="todo-item-container d-flex flex-row">
+<!-- this code is writen by JavaScript
+                        <li class="todo-item-container d-flex flex-row">
                             <input type="checkbox" name="" id="checkboxInput" class="checkbox-input">
                             <div class="label-container d-flex flex-row">
                                 <label for="checkboxInput" class="checkbox-label">Learn HTML</label>
@@ -31,7 +34,8 @@
                                     <i class="bi bi-trash"></i>
                                 </div>
                             </div>
-                        </li> -->
+                        </li>
+this code is writen by JavaScript -->
                     </ul>
                 </div>
             </div>
