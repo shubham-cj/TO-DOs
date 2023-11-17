@@ -2,7 +2,7 @@
 
 .todo-bg-container{
     background-color: #d8e7fd;
-    height: 100vh;
+    height: auto;
 }
 
 .todos-heading{
@@ -34,7 +34,7 @@
     padding: 15px;
 }
 
-.add-todo-button{
+.button{
     background-color: #4c63b6;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;

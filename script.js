@@ -2,21 +2,24 @@
 let todoItemsContainer = document.getElementById("todoItemsContainer")
 let onAddTodoButton = document.getElementById('onAddTodoButton')
 
+function getTodoListFromLocalStorage(){
+    let stringifiedTodoList = localStorage.getItem("todoList")
+    let parsedTodoList = JSON.parse(stringifiedTodoList);
 
-let todoList = [
-    {
-        text: "Workout",
-        uniqueNo: 1
-    },
-    {
-        text: "Study",
-        uniqueNo: 2
-    },
-    {
-        text: "Read Book",
-        uniqueNo: 3
-    },
-]
+    if (parsedTodoList === null){
+        return []
+    }
+    else{
+        return parsedTodoList
+    }
+}
+
+let todoList = getTodoListFromLocalStorage()
+    
+function saveTodoButton(){
+    localStorage.setItem("todoList", JSON.stringify(todoList))
+}
+
 let todosCount = todoList.length
 
 function onTodoStatusChange(labelId){
@@ -27,6 +30,7 @@ function onTodoStatusChange(labelId){
 function onDeleteTodo(todoId){
     let todoElement = document.getElementById(todoId)
     todoItemsContainer.removeChild(todoElement)
+    todoList.pop(todoElement)
 }
 
 function creatAndAppendList(todo){
@@ -87,6 +91,7 @@ function onAddTodo(){
         text: userInputValue,
         uniqueNo: todosCount
     }
+    todoList.push(newTodo)
     creatAndAppendList(newTodo)
     todoUserInput.value = ""
 }
