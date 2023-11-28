@@ -22,9 +22,29 @@ function saveTodoButton(){
 
 let todosCount = todoList.length
 
-function onTodoStatusChange(labelId){
+function onTodoStatusChange(labelId, todoId){
     let labelElement = document.getElementById(labelId)
     labelElement.classList.toggle('checked')
+
+    let todoObjectIndex = todoList.findIndex(
+        function(eachTodo){
+            let eachTodoId = "todo" + eachTodo.uniqueNo
+            if (eachTodoId === todoId){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    )
+    let todoObject = todoList[todoObjectIndex]
+
+    if (todoObject.isChecked === true){
+        todoObject.isChecked = false
+    }
+    else{
+        todoObject.isChecked = true
+    }
 }
 
 function onDeleteTodo(todoId){
@@ -58,8 +78,9 @@ function creatAndAppendList(todo){
     inputElement.classList.add("checkbox-input")
     inputElement.type = "checkbox"
     inputElement.id = checkboxId
+    inputElement.checked = todo.isChecked
     inputElement.onclick = function(){
-        onTodoStatusChange(labelId)
+        onTodoStatusChange(labelId, todoId)
     }
     todoElement.appendChild(inputElement)
 
@@ -72,6 +93,9 @@ function creatAndAppendList(todo){
     labelElement.setAttribute("for", checkboxId)
     labelElement.id = labelId
     labelElement.textContent = todo.text
+    if (todo.isChecked === true){
+        labelElement.classList.add("checked")
+    }
     labelContainer.appendChild(labelElement)
 
     let deleteIconContainer = document.createElement("div")
@@ -100,7 +124,8 @@ function onAddTodo(){
     todosCount += 1
     let newTodo = {
         text: userInputValue,
-        uniqueNo: todosCount
+        uniqueNo: todosCount,
+        isChecked: false
     }
     todoList.push(newTodo)
     creatAndAppendList(newTodo)
